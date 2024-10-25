@@ -15,12 +15,13 @@ app.get("/posts/:id/comments", (req, res) => {
 });
 app.post("/posts/:id/comments", (req, res) => {
   const commentId = randomBytes(4).toString("hex");
-  const { comment } = req.body;
-
+  const { content } = req.body;
+  console.log(req.body);
   let comments = commentsByPostId[req.params.id] || [];
-  comments.push({ id: commentId, comment });
+  console.log(comments);
+  comments.push({ id: commentId, content: content });
   commentsByPostId[req.params.id] = comments;
-
+    console.log(comments);
   res.status(201).send(commentsByPostId[req.params.id]);
 });
 
