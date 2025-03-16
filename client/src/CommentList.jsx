@@ -3,7 +3,6 @@ import axios from "axios";
 
 const CommentList = ({ postId }) => {
   const [comments, setComments] = useState([]);
-  console.log("comments", comments);
 
   const fetchData = async () => {
     try {
